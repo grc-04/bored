@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import './homepage.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,27 +43,51 @@ class _MyAppState extends State<MyApp> {
                       fontWeight: FontWeight.bold,
                       fontSize: 12),
                   constraints: BoxConstraints(minHeight: 1, minWidth: 1),
-                )
+                ),
+                IconButton(onPressed: () {}, icon: Icon(Icons.add))
               ],
             ),
             body: Container(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                controller: editingController,
-                decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.white,
+                width: double.infinity,
+                height: double.infinity,
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  textDirection: TextDirection.rtl,
+                  children: [
+                    TextField(
+                      controller: editingController,
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 1),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(25.0)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 1),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(25.0)),
+                          )),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1),
-                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1),
-                      borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                    )),
-              ),
-            )));
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(
+                        "New & Popular!",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Ubuntu',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30),
+                        textAlign: TextAlign.left,
+                      ),
+                    )
+                  ],
+                ))));
   }
 }
