@@ -1,9 +1,13 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_types_as_parameter_names, non_constant_identifier_names
 
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:bored/firebase_options.dart';
+import 'package:lottie/lottie.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +24,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final Stream<QuerySnapshot> movies =
+      FirebaseFirestore.instance.collection("movies").snapshots();
+
   TextEditingController editingController = TextEditingController();
 
   @override
@@ -61,6 +68,7 @@ class _MyAppState extends State<MyApp> {
                   textDirection: TextDirection.rtl,
                   children: [
                     TextField(
+                      cursorColor: Colors.white,
                       controller: editingController,
                       decoration: InputDecoration(
                           prefixIcon: Icon(
@@ -91,6 +99,38 @@ class _MyAppState extends State<MyApp> {
                             fontSize: 30),
                         textAlign: TextAlign.left,
                       ),
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                            height: 170,
+                            child: StreamBuilder<QuerySnapshot>(
+                              stream: movies,
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                                if (snapshot.hasError) {
+                                  return Text("Something's Wrong");
+                                }
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return Lottie.asset("assets/loader.json");
+                                }
+                                final data = snapshot.requireData;
+                                return ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: data.size,
+                                  itemBuilder: (context, index) {
+                                    return SizedBox(
+                                        height: 100,
+                                        width: 100,
+                                        child: Image(
+                                          image: data.docs[index]['img'],
+                                        ));
+                                  },
+                                );
+                              },
+                            )),
+                      ],
                     )
                   ],
                 ))));
