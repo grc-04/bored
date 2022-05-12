@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:bored/app_drawer.dart';
 import 'package:bored/movies_list.dart';
 import 'package:bored/provider/movies_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -43,16 +44,15 @@ class _MyAppState extends State<MyApp> {
               primaryColor: Color.fromRGBO(35, 35, 35, 10),
               accentColor: Colors.white),
           home: Scaffold(
-            backgroundColor: Color.fromRGBO(35, 35, 35, 10),
+            backgroundColor: Colors.black,
             appBar: AppBar(
-              leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
               backgroundColor: Colors.transparent,
               elevation: 0,
               actions: [
                 GFButton(
                   onPressed: () {},
-                  text: """  Want personalized
-      recommendations?""",
+                  text: """      Want personalized
+      recommendations?  """,
                   shape: GFButtonShape.pills,
                   type: GFButtonType.outline,
                   size: GFSize.SMALL,
@@ -65,6 +65,12 @@ class _MyAppState extends State<MyApp> {
                 ),
                 IconButton(onPressed: () {}, icon: Icon(Icons.add))
               ],
+            ),
+            drawer: Theme(
+              data: Theme.of(context).copyWith(
+                canvasColor: Colors.black,
+              ),
+              child: AppDrawer(),
             ),
             body: Container(
               width: double.infinity,
