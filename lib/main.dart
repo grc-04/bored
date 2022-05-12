@@ -48,23 +48,7 @@ class _MyAppState extends State<MyApp> {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
-              actions: [
-                GFButton(
-                  onPressed: () {},
-                  text: """      Want personalized
-      recommendations?  """,
-                  shape: GFButtonShape.pills,
-                  type: GFButtonType.outline,
-                  size: GFSize.SMALL,
-                  color: GFColors.WHITE,
-                  textStyle: TextStyle(
-                      fontFamily: 'Ubuntu',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12),
-                  constraints: BoxConstraints(minHeight: 1, minWidth: 1),
-                ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.add))
-              ],
+              actions: [],
             ),
             drawer: Theme(
               data: Theme.of(context).copyWith(
