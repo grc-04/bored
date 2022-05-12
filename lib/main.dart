@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:bored/actionlist.dart';
 import 'package:bored/app_drawer.dart';
 import 'package:bored/comedylist.dart';
+import 'package:bored/homepage.dart';
 import 'package:bored/movies_list.dart';
 import 'package:bored/provider/action.dart';
 import 'package:bored/provider/comedy.dart';
@@ -25,7 +26,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(MyApp());
+  runApp(Homepage());
 }
 
 class MyApp extends StatefulWidget {

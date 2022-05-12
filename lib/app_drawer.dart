@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bored/homepage.dart';
 import 'package:bored/main.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,8 @@ class AppDrawer extends StatelessWidget {
             backgroundColor: Colors.black,
             leading: IconButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => MyApp()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Homepage()));
               },
               icon: Icon(
                 Icons.arrow_back_ios_new_outlined,
