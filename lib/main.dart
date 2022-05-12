@@ -4,8 +4,10 @@ import 'dart:async';
 
 import 'package:bored/actionlist.dart';
 import 'package:bored/app_drawer.dart';
+import 'package:bored/comedylist.dart';
 import 'package:bored/movies_list.dart';
 import 'package:bored/provider/action.dart';
+import 'package:bored/provider/comedy.dart';
 import 'package:bored/provider/movies_provider.dart';
 import 'package:bored/provider/thriller.dart';
 import 'package:bored/thrillerlist.dart';
@@ -45,7 +47,8 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider.value(value: Movies()),
         ChangeNotifierProvider.value(value: ActionM()),
-        ChangeNotifierProvider.value(value: ThrillerM())
+        ChangeNotifierProvider.value(value: ThrillerM()),
+        ChangeNotifierProvider.value(value: ComedyM()),
       ],
       child: MaterialApp(
           theme: ThemeData(
@@ -56,7 +59,16 @@ class _MyAppState extends State<MyApp> {
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
-              actions: [],
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CircleAvatar(
+                    radius: 15,
+                    child: Image.asset("assets/images/Bored logo.png"),
+                    backgroundColor: Colors.black,
+                  ),
+                )
+              ],
             ),
             drawer: Theme(
               data: Theme.of(context).copyWith(
@@ -125,6 +137,19 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   SizedBox(height: 170, child: Thrillerlist()),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      "Comedy",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  SizedBox(height: 170, child: ComedyMoviesList()),
                 ],
               ),
             ),

@@ -65,6 +65,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/loader.json
+    - assets/images/Bored logo.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

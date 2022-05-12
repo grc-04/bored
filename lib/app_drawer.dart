@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bored/main.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -12,7 +13,10 @@ class AppDrawer extends StatelessWidget {
           AppBar(
             backgroundColor: Colors.black,
             leading: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => MyApp()));
+              },
               icon: Icon(
                 Icons.arrow_back_ios_new_outlined,
                 color: Colors.white,
