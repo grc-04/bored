@@ -2,12 +2,17 @@
 
 import 'dart:async';
 
+import 'package:bored/movies_list.dart';
+import 'package:bored/provider/movies_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:bored/firebase_options.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
+import './movies_list.dart';
+import './provider/movies.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,11 +36,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(
-            primaryColor: Color.fromRGBO(35, 35, 35, 10),
-            accentColor: Colors.white),
-        home: Scaffold(
+    return MultiProvider(
+      providers: [ChangeNotifierProvider.value(value: Movies())],
+      child: MaterialApp(
+          theme: ThemeData(
+              primaryColor: Color.fromRGBO(35, 35, 35, 10),
+              accentColor: Colors.white),
+          home: Scaffold(
             backgroundColor: Color.fromRGBO(35, 35, 35, 10),
             appBar: AppBar(
               leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
@@ -45,7 +52,7 @@ class _MyAppState extends State<MyApp> {
                 GFButton(
                   onPressed: () {},
                   text: """  Want personalized
-  recommendations?""",
+      recommendations?""",
                   shape: GFButtonShape.pills,
                   type: GFButtonType.outline,
                   size: GFSize.SMALL,
@@ -60,79 +67,47 @@ class _MyAppState extends State<MyApp> {
               ],
             ),
             body: Container(
-                width: double.infinity,
-                height: double.infinity,
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  textDirection: TextDirection.rtl,
-                  children: [
-                    TextField(
-                      cursorColor: Colors.white,
-                      controller: editingController,
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: Colors.white,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 1),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(25.0)),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 1),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(25.0)),
-                          )),
+              width: double.infinity,
+              height: double.infinity,
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                textDirection: TextDirection.rtl,
+                children: [
+                  TextField(
+                    cursorColor: Colors.white,
+                    controller: editingController,
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      "What's Popular?",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                      textAlign: TextAlign.left,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        "New & Popular!",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Ubuntu',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                            height: 170,
-                            child: StreamBuilder<QuerySnapshot>(
-                              stream: movies,
-                              builder: (BuildContext context,
-                                  AsyncSnapshot<QuerySnapshot> snapshot) {
-                                if (snapshot.hasError) {
-                                  return Text("Something's Wrong");
-                                }
-                                if (snapshot.connectionState ==
-                                    ConnectionState.waiting) {
-                                  return Lottie.asset("assets/loader.json");
-                                }
-                                final data = snapshot.requireData;
-                                return ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: data.size,
-                                  itemBuilder: (context, index) {
-                                    return SizedBox(
-                                        height: 100,
-                                        width: 100,
-                                        child: Image(
-                                          image: data.docs[index]['img'],
-                                        ));
-                                  },
-                                );
-                              },
-                            )),
-                      ],
-                    )
-                  ],
-                ))));
+                  ),
+                  SizedBox(height: 170, child: MoviesList()),
+                ],
+              ),
+            ),
+          )),
+    );
   }
 }

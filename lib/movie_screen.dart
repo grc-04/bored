@@ -1,19 +1,5 @@
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Movie UI',
-      theme: ThemeData.dark(),
-      home: MovieScreen(),
-    );
-  }
-}
-
 class MovieScreen extends StatelessWidget {
   const MovieScreen({Key? key}) : super(key: key);
 
