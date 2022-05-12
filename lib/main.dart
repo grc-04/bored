@@ -2,9 +2,13 @@
 
 import 'dart:async';
 
+import 'package:bored/actionlist.dart';
 import 'package:bored/app_drawer.dart';
 import 'package:bored/movies_list.dart';
+import 'package:bored/provider/action.dart';
 import 'package:bored/provider/movies_provider.dart';
+import 'package:bored/provider/thriller.dart';
+import 'package:bored/thrillerlist.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +42,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider.value(value: Movies())],
+      providers: [
+        ChangeNotifierProvider.value(value: Movies()),
+        ChangeNotifierProvider.value(value: ActionM()),
+        ChangeNotifierProvider.value(value: ThrillerM())
+      ],
       child: MaterialApp(
           theme: ThemeData(
               primaryColor: Color.fromRGBO(35, 35, 35, 10),
@@ -56,10 +64,7 @@ class _MyAppState extends State<MyApp> {
               ),
               child: AppDrawer(),
             ),
-            body: Container(
-              width: double.infinity,
-              height: double.infinity,
-              padding: EdgeInsets.all(10),
+            body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 textDirection: TextDirection.rtl,
@@ -94,6 +99,32 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   SizedBox(height: 170, child: MoviesList()),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      "Action",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  SizedBox(height: 170, child: ActionMoviesList()),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      "Thriller",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  SizedBox(height: 170, child: Thrillerlist()),
                 ],
               ),
             ),

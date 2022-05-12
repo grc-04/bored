@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
@@ -5,17 +7,18 @@ import 'package:provider/provider.dart';
 import './provider/movies.dart';
 import './provider/movies_provider.dart';
 import './movie_screen.dart';
+import './provider/action.dart';
 
-class MoviesList extends StatelessWidget {
-  const MoviesList({Key? key}) : super(key: key);
+class ActionMoviesList extends StatelessWidget {
+  const ActionMoviesList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _movie = Provider.of<Movies>(context, listen: false);
-    final _movieslist = _movie.movies;
+    final _actionmovie = Provider.of<ActionM>(context, listen: false);
+    final _actionmovieslist = _actionmovie.actionmovies;
     return ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: _movieslist.length,
+        itemCount: _actionmovieslist.length,
         itemBuilder: (BuildContext context, index) {
           return GestureDetector(
             onTap: (() {
@@ -27,10 +30,10 @@ class MoviesList extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: SizedBox(
-                  height: 200,
+                  height: 300,
                   width: 125,
                   child: Image.network(
-                    _movieslist[index].imageUrl,
+                    _actionmovieslist[index].imageUrl,
                     fit: BoxFit.cover,
                   ),
                 ),

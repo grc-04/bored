@@ -1,21 +1,22 @@
 import 'dart:ffi';
 
+import 'package:bored/provider/thriller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './provider/movies.dart';
 import './provider/movies_provider.dart';
 import './movie_screen.dart';
 
-class MoviesList extends StatelessWidget {
-  const MoviesList({Key? key}) : super(key: key);
+class Thrillerlist extends StatelessWidget {
+  const Thrillerlist({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _movie = Provider.of<Movies>(context, listen: false);
-    final _movieslist = _movie.movies;
+    final _thrillermovie = Provider.of<ThrillerM>(context, listen: false);
+    final _thrillerlist = _thrillermovie.thrillermovies;
     return ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: _movieslist.length,
+        itemCount: _thrillerlist.length,
         itemBuilder: (BuildContext context, index) {
           return GestureDetector(
             onTap: (() {
@@ -30,7 +31,7 @@ class MoviesList extends StatelessWidget {
                   height: 200,
                   width: 125,
                   child: Image.network(
-                    _movieslist[index].imageUrl,
+                    _thrillerlist[index].imageUrl,
                     fit: BoxFit.cover,
                   ),
                 ),
