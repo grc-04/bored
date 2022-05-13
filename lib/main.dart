@@ -72,22 +72,37 @@ class _MyAppState extends State<MyApp> {
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(
+                selectedItemColor: Colors.white,
+                unselectedItemColor: Colors.white,
                 type: BottomNavigationBarType.fixed,
+                backgroundColor: Colors.black,
                 items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
+                    icon: Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
                     label: "Home",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.add),
+                    icon: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
                     label: "Watchlist",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.shuffle),
+                    icon: Icon(
+                      Icons.shuffle,
+                      color: Colors.white,
+                    ),
                     label: "Shuffle",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.settings),
+                    icon: Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                    ),
                     label: "Settings",
                   ),
                 ]),
