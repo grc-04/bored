@@ -37,6 +37,7 @@ class MovieScreen extends StatelessWidget {
                           child: Text(
                             'Avengers:Endgame ',
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                             ),
@@ -85,6 +86,7 @@ class MovieScreen extends StatelessWidget {
                               Text(
                                 'Runtime:',
                                 style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -95,6 +97,7 @@ class MovieScreen extends StatelessWidget {
                               Text(
                                 '3h 2m',
                                 style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -109,6 +112,7 @@ class MovieScreen extends StatelessWidget {
                               Text(
                                 'Director:',
                                 style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -119,6 +123,7 @@ class MovieScreen extends StatelessWidget {
                               Text(
                                 'Anthony Russo',
                                 style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -131,6 +136,7 @@ class MovieScreen extends StatelessWidget {
                           child: Text(
                             'Joe Russo',
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                             ),
@@ -143,6 +149,7 @@ class MovieScreen extends StatelessWidget {
                               Text(
                                 'Producer:',
                                 style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -153,6 +160,7 @@ class MovieScreen extends StatelessWidget {
                               Text(
                                 'Kevin Fiege',
                                 style: TextStyle(
+                                  color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                 ),
