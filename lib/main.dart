@@ -71,6 +71,26 @@ class _MyAppState extends State<MyApp> {
                 )
               ],
             ),
+            bottomNavigationBar: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.home),
+                    label: "Home",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.add),
+                    label: "Watchlist",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.shuffle),
+                    label: "Shuffle",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.settings),
+                    label: "Settings",
+                  ),
+                ]),
             drawer: Theme(
               data: Theme.of(context).copyWith(
                 canvasColor: Colors.black,
