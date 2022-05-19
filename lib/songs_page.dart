@@ -12,11 +12,8 @@ import 'package:bored/provider/comedy.dart';
 import 'package:bored/provider/movies_provider.dart';
 import 'package:bored/provider/thriller.dart';
 import 'package:bored/thrillerlist.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:bored/firebase_options.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import './movies_list.dart';
@@ -30,9 +27,6 @@ class SongsPage extends StatefulWidget {
 }
 
 class _SongsPageState extends State<SongsPage> {
-  final Stream<QuerySnapshot> movies =
-      FirebaseFirestore.instance.collection("movies").snapshots();
-
   TextEditingController editingController = TextEditingController();
 
   @override

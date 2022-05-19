@@ -2,6 +2,7 @@
 
 import 'package:bored/homepage.dart';
 import 'package:bored/main.dart';
+import 'package:bored/songs_page.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -47,7 +48,10 @@ class AppDrawer extends StatelessWidget {
                   fontSize: 30,
                   fontWeight: FontWeight.bold),
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SongsPage()));
+            },
           ),
           Divider(),
           ListTile(

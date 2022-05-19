@@ -7,25 +7,20 @@ import 'package:bored/app_drawer.dart';
 import 'package:bored/comedylist.dart';
 import 'package:bored/homepage.dart';
 import 'package:bored/movies_list.dart';
+import 'package:bored/music_screen.dart';
 import 'package:bored/provider/action.dart';
 import 'package:bored/provider/comedy.dart';
 import 'package:bored/provider/movies_provider.dart';
 import 'package:bored/provider/thriller.dart';
 import 'package:bored/thrillerlist.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:bored/firebase_options.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import './movies_list.dart';
 import './provider/movies.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(Homepage());
 }
 
@@ -37,9 +32,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final Stream<QuerySnapshot> movies =
-      FirebaseFirestore.instance.collection("movies").snapshots();
-
   TextEditingController editingController = TextEditingController();
 
   @override
@@ -96,7 +88,7 @@ class _MyAppState extends State<MyApp> {
                       Icons.shuffle,
                       color: Colors.white,
                     ),
-                    label: "Shuffle",
+                    label: "Surprise Me!",
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(
