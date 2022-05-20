@@ -22,3 +22,5 @@ https://www.figma.com/file/M2NjuodMjqZLjMJZxdnmTU/Bored-App-UI?node-id=0%3A1
 
 ## Working Video 
 
+## The Team 
+Developed by @anshb7, @grc-04
