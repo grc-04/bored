@@ -32,8 +32,8 @@ class MovieScreen extends StatelessWidget {
         ),
         DraggableScrollableSheet(
             expand: true,
-            initialChildSize: 0.3,
-            minChildSize: 0.2,
+            initialChildSize: 0.1,
+            minChildSize: 0.1,
             maxChildSize: 1.0,
             builder: (context, controller) => ClipRRect(
                   borderRadius: BorderRadius.circular(24),
