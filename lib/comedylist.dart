@@ -20,8 +20,8 @@ class ComedyMoviesList extends StatelessWidget {
         itemBuilder: (BuildContext context, index) {
           return GestureDetector(
             onTap: (() {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MovieScreen()));
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => MovieScreen()));
             }),
             child: Padding(
               padding: EdgeInsets.all(4),

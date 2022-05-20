@@ -17,10 +17,12 @@ class MoviesList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: _movieslist.length,
         itemBuilder: (BuildContext context, index) {
+          final Movie movie = _movieslist[index];
+
           return GestureDetector(
             onTap: (() {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MovieScreen()));
+                  MaterialPageRoute(builder: (context) => MovieScreen(movie)));
             }),
             child: Padding(
               padding: EdgeInsets.all(4),

@@ -7,76 +7,104 @@ import 'package:bored/provider/movies_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class MovieScreen extends StatefulWidget {
-  const MovieScreen({Key? key}) : super(key: key);
+class MovieScreen extends StatelessWidget {
+  final Movie movie;
+  MovieScreen(this.movie);
 
-  @override
-  State<MovieScreen> createState() => _MovieScreenState();
-}
-
-class _MovieScreenState extends State<MovieScreen> {
   @override
   Widget build(BuildContext context) {
     final _movie = Provider.of<Movies>(context, listen: false);
     final _mlist = _movie.movies;
-    int i = 0;
 
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(backgroundColor: Colors.black),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+      ),
       body: Stack(fit: StackFit.expand, children: [
-        for (int i = 0; i < _mlist.length; i++)
-          ListView.builder(
-            itemCount: 1,
-            shrinkWrap: true,
-            itemBuilder: (context, i) => Image(
-              // ignore: prefer_const_constructors
-              image: NetworkImage(_mlist[i].imageUrl),
-              fit: BoxFit.cover,
-              width: double.infinity,
-            ),
-          ),
+        Image(
+          // ignore: prefer_const_constructors
+          image: NetworkImage(movie.imageUrl),
+          fit: BoxFit.cover,
+          width: double.infinity,
+        ),
         DraggableScrollableSheet(
             expand: true,
-            initialChildSize: 0.5,
-            minChildSize: 0.5,
+            initialChildSize: 0.3,
+            minChildSize: 0.2,
             maxChildSize: 1.0,
             builder: (context, controller) => ClipRRect(
                   borderRadius: BorderRadius.circular(24),
                   child: Container(
                     width: double.infinity,
-                    color: Colors.black,
+                    color: Colors.black87,
                     child: SingleChildScrollView(
                         child: ListView.builder(
                       controller: controller,
                       shrinkWrap: true,
                       itemCount: 1,
                       itemBuilder: (context, index) => Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(40),
-                                    child: Image.network(
-                                      "https://i.gadgets360cdn.com/large/disney_plus_hotstar_logo_1583901149861.jpg",
-                                      height: 120,
-                                      width: 120,
-                                      alignment: Alignment.center,
-                                    ),
-                                  ))
-                            ],
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                GestureDetector(
+                                  onTap: () => _launchURL1(),
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Image.network(
+                                          "https://i.gadgets360cdn.com/large/disney_plus_hotstar_logo_1583901149861.jpg",
+                                          height: 120,
+                                          width: 120,
+                                          alignment: Alignment.center,
+                                        ),
+                                      )),
+                                ),
+                                GestureDetector(
+                                  onTap: () => _launchURL3(),
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Image.network(
+                                          "https://m.media-amazon.com/images/G/01/support_images/GUID-A5E374A8-16DA-4B39-8E3F-3F3B34E831FB=2=en-US=Normal.png",
+                                          height: 120,
+                                          width: 120,
+                                          alignment: Alignment.center,
+                                        ),
+                                      )),
+                                ),
+                                GestureDetector(
+                                  onTap: () => _launchURL2(),
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Image.network(
+                                          "https://cdn.vox-cdn.com/thumbor/Yq1Vd39jCBGpTUKHUhEx5FfxvmM=/39x0:3111x2048/1200x800/filters:focal(39x0:3111x2048)/cdn.vox-cdn.com/uploads/chorus_image/image/49901753/netflixlogo.0.0.png",
+                                          height: 120,
+                                          width: 120,
+                                          alignment: Alignment.center,
+                                        ),
+                                      )),
+                                )
+                              ],
+                            ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
                                 "Title : ",
+                                maxLines: 1,
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontFamily: 'Ubuntu',
@@ -85,7 +113,7 @@ class _MovieScreenState extends State<MovieScreen> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  _mlist[index].title,
+                                  movie.title,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Ubuntu',
@@ -107,7 +135,7 @@ class _MovieScreenState extends State<MovieScreen> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  _mlist[index].rating.toString(),
+                                  movie.rating.toString(),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Ubuntu',
@@ -130,7 +158,7 @@ class _MovieScreenState extends State<MovieScreen> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    _mlist[index].description,
+                                    movie.description,
                                     maxLines: 20,
                                     style: TextStyle(
                                         color: Colors.white,
@@ -148,5 +176,32 @@ class _MovieScreenState extends State<MovieScreen> {
                 )),
       ]),
     );
+  }
+}
+
+_launchURL1() async {
+  const url = 'https://www.hotstar.com/in';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchURL2() async {
+  const url = 'https://www.netflix.com/in/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchURL3() async {
+  const url = 'https://www.primevideo.com';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
