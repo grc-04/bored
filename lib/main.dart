@@ -51,7 +51,10 @@ class _MyAppState extends State<MyApp> {
                 end: const FractionalOffset(1.0, 0.0),
                 stops: [0.0, 1.0],
                 tileMode: TileMode.clamp,
-                colors: [Color(0x304352), Color(0xd7d2cc)])),
+                colors: [
+                  Color.fromRGBO(0, 0, 0, 10),
+                  Color.fromRGBO(67, 67, 67, 10)
+                ])),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
@@ -63,7 +66,7 @@ class _MyAppState extends State<MyApp> {
                 child: CircleAvatar(
                   radius: 15,
                   child: Image.asset("assets/images/Bored logo.png"),
-                  backgroundColor: Colors.black,
+                  backgroundColor: Colors.transparent,
                 ),
               )
             ],

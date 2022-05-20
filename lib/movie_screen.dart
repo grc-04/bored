@@ -23,6 +23,18 @@ class MovieScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(1.0, 0.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp,
+                  colors: [
+                    Color.fromRGBO(0, 0, 0, 10),
+                    Color.fromRGBO(67, 67, 67, 10)
+                  ])),
+        ),
       ),
       body: Stack(fit: StackFit.expand, children: [
         Image(
