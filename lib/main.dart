@@ -117,25 +117,30 @@ class _MyAppState extends State<MyApp> {
               crossAxisAlignment: CrossAxisAlignment.end,
               textDirection: TextDirection.rtl,
               children: [
-                TextField(
-                  style: TextStyle(color: Colors.white, fontFamily: 'Uber'),
-                  cursorColor: Colors.white,
-                  controller: editingController,
-                  decoration: InputDecoration(
-                      fillColor: Colors.black,
-                      filled: true,
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Colors.white,
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 1),
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 1),
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                      )),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 39,
+                  width: 1000,
+                  child: TextField(
+                    style: TextStyle(color: Colors.white, fontFamily: 'Uber'),
+                    cursorColor: Colors.white,
+                    controller: editingController,
+                    decoration: InputDecoration(
+                        fillColor: Colors.black,
+                        filled: true,
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        )),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),

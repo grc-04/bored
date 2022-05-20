@@ -8,27 +8,39 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar(
+      home: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: [0.0, 1.0],
+                tileMode: TileMode.clamp,
+                colors: [
+                  Color.fromRGBO(0, 0, 0, 10),
+                  Color.fromRGBO(67, 67, 67, 10)
+                ])),
+        child: Scaffold(
           backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                "bored?",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: "Uber",
-                  fontSize: 40,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            title: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  "bored?",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "Uber",
+                    fontSize: 40,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
+          body: ExampleParallax(),
         ),
-        body: ExampleParallax(),
       ),
     );
   }
