@@ -44,75 +44,90 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider.value(value: ComedyM()),
       ],
       child: MaterialApp(
-          theme: ThemeData(
-              primaryColor: Color.fromRGBO(35, 35, 35, 10),
-              accentColor: Colors.white),
-          home: Scaffold(
-            backgroundColor: Colors.black,
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: CircleAvatar(
-                    radius: 15,
-                    child: Image.asset("assets/images/Bored logo.png"),
-                    backgroundColor: Colors.black,
+          home: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: [0.0, 1.0],
+                tileMode: TileMode.clamp,
+                colors: [
+                  Color.fromRGBO(0, 0, 0, 10),
+                  Color.fromRGBO(67, 67, 67, 10)
+                ])),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: CircleAvatar(
+                  radius: 15,
+                  child: Image.asset("assets/images/Bored logo.png"),
+                  backgroundColor: Colors.transparent,
+                ),
+              )
+            ],
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+              selectedItemColor: Colors.white,
+              unselectedItemColor: Colors.white,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Colors.black,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home,
+                    color: Colors.white,
                   ),
-                )
-              ],
+                  label: "Home",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                  label: "Watchlist",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.shuffle,
+                    color: Colors.white,
+                  ),
+                  label: "Surprise Me!",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.settings,
+                    color: Colors.white,
+                  ),
+                  label: "Settings",
+                ),
+              ]),
+          drawer: Theme(
+            data: Theme.of(context).copyWith(
+              canvasColor: Colors.black,
             ),
-            bottomNavigationBar: BottomNavigationBar(
-                selectedItemColor: Colors.white,
-                unselectedItemColor: Colors.white,
-                type: BottomNavigationBarType.fixed,
-                backgroundColor: Colors.black,
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.home,
-                      color: Colors.white,
-                    ),
-                    label: "Home",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                    label: "Watchlist",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.shuffle,
-                      color: Colors.white,
-                    ),
-                    label: "Surprise Me!",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.settings,
-                      color: Colors.white,
-                    ),
-                    label: "Settings",
-                  ),
-                ]),
-            drawer: Theme(
-              data: Theme.of(context).copyWith(
-                canvasColor: Colors.black,
-              ),
-              child: AppDrawer(),
-            ),
-            body: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                textDirection: TextDirection.rtl,
-                children: [
-                  TextField(
+            child: AppDrawer(),
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              textDirection: TextDirection.rtl,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: 39,
+                  width: 1000,
+                  child: TextField(
+                    style: TextStyle(color: Colors.white, fontFamily: 'Uber'),
                     cursorColor: Colors.white,
                     controller: editingController,
                     decoration: InputDecoration(
+                        fillColor: Colors.black,
+                        filled: true,
                         prefixIcon: Icon(
                           Icons.search,
                           color: Colors.white,
@@ -126,62 +141,64 @@ class _MyAppState extends State<MyApp> {
                           borderRadius: BorderRadius.all(Radius.circular(25.0)),
                         )),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      "What's Popular?",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                      textAlign: TextAlign.left,
-                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "What's Popular?",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Uber',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
+                    textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 170, child: MoviesList()),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      "Action",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                      textAlign: TextAlign.left,
-                    ),
+                ),
+                SizedBox(height: 170, child: MoviesList()),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "Action",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Uber',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
+                    textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 170, child: ActionMoviesList()),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      "Thriller",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                      textAlign: TextAlign.left,
-                    ),
+                ),
+                SizedBox(height: 170, child: ActionMoviesList()),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "Thriller",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Uber',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
+                    textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 170, child: Thrillerlist()),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      "Comedy",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                      textAlign: TextAlign.left,
-                    ),
+                ),
+                SizedBox(height: 170, child: Thrillerlist()),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "Comedy",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Uber',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
+                    textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 170, child: ComedyMoviesList()),
-                ],
-              ),
+                ),
+                SizedBox(height: 170, child: ComedyMoviesList()),
+              ],
             ),
-          )),
+          ),
+        ),
+      )),
     );
   }
 }

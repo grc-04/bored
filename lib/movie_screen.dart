@@ -23,6 +23,18 @@ class MovieScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(1.0, 0.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp,
+                  colors: [
+                    Color.fromRGBO(0, 0, 0, 10),
+                    Color.fromRGBO(67, 67, 67, 10)
+                  ])),
+        ),
       ),
       body: Stack(fit: StackFit.expand, children: [
         Image(
@@ -111,7 +123,7 @@ class MovieScreen extends StatelessWidget {
                                 maxLines: 1,
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Ubuntu',
+                                    fontFamily: 'Uber',
                                     fontSize: 25),
                               ),
                               Padding(
@@ -120,7 +132,7 @@ class MovieScreen extends StatelessWidget {
                                   movie.title,
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontFamily: 'Ubuntu',
+                                      fontFamily: 'Uber',
                                       fontSize: 25),
                                 ),
                               )
@@ -133,7 +145,7 @@ class MovieScreen extends StatelessWidget {
                                 "Rating : ",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Ubuntu',
+                                    fontFamily: 'Uber',
                                     fontSize: 25),
                               ),
                               Padding(
@@ -142,7 +154,7 @@ class MovieScreen extends StatelessWidget {
                                   movie.rating.toString(),
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontFamily: 'Ubuntu',
+                                      fontFamily: 'Uber',
                                       fontSize: 25),
                                 ),
                               )
@@ -155,7 +167,7 @@ class MovieScreen extends StatelessWidget {
                                 "Description : ",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Ubuntu',
+                                    fontFamily: 'Uber',
                                     fontSize: 25),
                               ),
                               Expanded(
@@ -166,7 +178,7 @@ class MovieScreen extends StatelessWidget {
                                     maxLines: 20,
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontFamily: 'Ubuntu',
+                                        fontFamily: 'Uber',
                                         fontSize: 20),
                                   ),
                                 ),
