@@ -4,6 +4,7 @@ Bored is a simple app with a simple purpose.
 Just as the name suggests, the bored app is for people who're bored and want something to do.
 It is an all-in-one app to provide recommendations of movies, songs animes,books etc.
 
+![](/LogoxBored.png)
 
 ## Tech Stack 
 
