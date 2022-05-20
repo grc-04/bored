@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:bored/provider/movies.dart';
 import 'package:bored/provider/movies_provider.dart';
@@ -31,15 +32,18 @@ class MovieScreen extends StatelessWidget {
           width: double.infinity,
         ),
         DraggableScrollableSheet(
-            expand: true,
-            initialChildSize: 0.1,
-            minChildSize: 0.1,
-            maxChildSize: 1.0,
-            builder: (context, controller) => ClipRRect(
-                  borderRadius: BorderRadius.circular(24),
+          expand: true,
+          initialChildSize: 0.1,
+          minChildSize: 0.1,
+          maxChildSize: 1.0,
+          builder: (context, controller) => ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: Container(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
                   child: Container(
                     width: double.infinity,
-                    color: Colors.black87,
+                    color: Colors.transparent,
                     child: SingleChildScrollView(
                         child: ListView.builder(
                       controller: controller,
@@ -59,11 +63,11 @@ class MovieScreen extends StatelessWidget {
                                   child: Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(40),
+                                        borderRadius: BorderRadius.circular(5),
                                         child: Image.network(
                                           "https://i.gadgets360cdn.com/large/disney_plus_hotstar_logo_1583901149861.jpg",
-                                          height: 120,
-                                          width: 120,
+                                          height: 90,
+                                          width: 90,
                                           alignment: Alignment.center,
                                         ),
                                       )),
@@ -73,11 +77,11 @@ class MovieScreen extends StatelessWidget {
                                   child: Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(40),
+                                        borderRadius: BorderRadius.circular(5),
                                         child: Image.network(
                                           "https://m.media-amazon.com/images/G/01/support_images/GUID-A5E374A8-16DA-4B39-8E3F-3F3B34E831FB=2=en-US=Normal.png",
-                                          height: 120,
-                                          width: 120,
+                                          height: 90,
+                                          width: 90,
                                           alignment: Alignment.center,
                                         ),
                                       )),
@@ -87,11 +91,11 @@ class MovieScreen extends StatelessWidget {
                                   child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(40),
+                                        borderRadius: BorderRadius.circular(5),
                                         child: Image.network(
                                           "https://cdn.vox-cdn.com/thumbor/Yq1Vd39jCBGpTUKHUhEx5FfxvmM=/39x0:3111x2048/1200x800/filters:focal(39x0:3111x2048)/cdn.vox-cdn.com/uploads/chorus_image/image/49901753/netflixlogo.0.0.png",
-                                          height: 120,
-                                          width: 120,
+                                          height: 90,
+                                          width: 90,
                                           alignment: Alignment.center,
                                         ),
                                       )),
@@ -173,7 +177,9 @@ class MovieScreen extends StatelessWidget {
                       ),
                     )),
                   ),
-                )),
+                ),
+              )),
+        )
       ]),
     );
   }

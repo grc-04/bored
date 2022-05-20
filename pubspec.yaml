@@ -41,6 +41,7 @@ dependencies:
   python: ^0.0.2
   sliding_sheet: ^0.5.2
   url_launcher: ^6.1.2
+  blur: ^3.1.0
   
 
 dev_dependencies:
