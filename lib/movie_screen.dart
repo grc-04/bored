@@ -111,7 +111,7 @@ class MovieScreen extends StatelessWidget {
                                 maxLines: 1,
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Ubuntu',
+                                    fontFamily: 'Uber',
                                     fontSize: 25),
                               ),
                               Padding(
@@ -120,7 +120,7 @@ class MovieScreen extends StatelessWidget {
                                   movie.title,
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontFamily: 'Ubuntu',
+                                      fontFamily: 'Uber',
                                       fontSize: 25),
                                 ),
                               )
@@ -133,7 +133,7 @@ class MovieScreen extends StatelessWidget {
                                 "Rating : ",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Ubuntu',
+                                    fontFamily: 'Uber',
                                     fontSize: 25),
                               ),
                               Padding(
@@ -142,7 +142,7 @@ class MovieScreen extends StatelessWidget {
                                   movie.rating.toString(),
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontFamily: 'Ubuntu',
+                                      fontFamily: 'Uber',
                                       fontSize: 25),
                                 ),
                               )
@@ -155,7 +155,7 @@ class MovieScreen extends StatelessWidget {
                                 "Description : ",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontFamily: 'Ubuntu',
+                                    fontFamily: 'Uber',
                                     fontSize: 25),
                               ),
                               Expanded(
@@ -166,7 +166,7 @@ class MovieScreen extends StatelessWidget {
                                     maxLines: 20,
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontFamily: 'Ubuntu',
+                                        fontFamily: 'Uber',
                                         fontSize: 20),
                                   ),
                                 ),

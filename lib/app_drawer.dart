@@ -32,7 +32,7 @@ class AppDrawer extends StatelessWidget {
               'Movies',
               style: TextStyle(
                   color: Colors.white,
-                  fontFamily: "Ubuntu",
+                  fontFamily: "Uber",
                   fontSize: 30,
                   fontWeight: FontWeight.bold),
             ),
@@ -44,7 +44,7 @@ class AppDrawer extends StatelessWidget {
               'Songs',
               style: TextStyle(
                   color: Colors.white,
-                  fontFamily: "Ubuntu",
+                  fontFamily: "Uber",
                   fontSize: 30,
                   fontWeight: FontWeight.bold),
             ),
@@ -59,7 +59,7 @@ class AppDrawer extends StatelessWidget {
               'TV Series',
               style: TextStyle(
                   color: Colors.white,
-                  fontFamily: "Ubuntu",
+                  fontFamily: "Uber",
                   fontSize: 30,
                   fontWeight: FontWeight.bold),
             ),
@@ -71,7 +71,7 @@ class AppDrawer extends StatelessWidget {
               'Anime',
               style: TextStyle(
                   color: Colors.white,
-                  fontFamily: "Ubuntu",
+                  fontFamily: "Uber",
                   fontSize: 30,
                   fontWeight: FontWeight.bold),
             ),
@@ -83,7 +83,7 @@ class AppDrawer extends StatelessWidget {
               'Books',
               style: TextStyle(
                   color: Colors.white,
-                  fontFamily: "Ubuntu",
+                  fontFamily: "Uber",
                   fontSize: 30,
                   fontWeight: FontWeight.bold),
             ),
