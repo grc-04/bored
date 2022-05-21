@@ -12,6 +12,7 @@ import 'package:bored/provider/action.dart';
 import 'package:bored/provider/comedy.dart';
 import 'package:bored/provider/movies_provider.dart';
 import 'package:bored/provider/thriller.dart';
+import 'package:bored/settings_ui.dart';
 import 'package:bored/thrillerlist.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
@@ -99,9 +100,14 @@ class _MyAppState extends State<MyApp> {
                   label: "Surprise Me!",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.settings,
-                    color: Colors.white,
+                  icon: IconButton(
+                    icon: Icon(Icons.settings),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SettingsList()),
+                      );
+                    },
                   ),
                   label: "Settings",
                 ),
