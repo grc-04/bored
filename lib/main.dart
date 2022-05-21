@@ -57,8 +57,8 @@ class _MyAppState extends State<MyApp> {
           home: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                begin: const FractionalOffset(0.0, 0.0),
-                end: const FractionalOffset(1.0, 0.0),
+                begin: FractionalOffset(0.0, 0.0),
+                end: FractionalOffset(1.0, 0.0),
                 stops: [0.0, 1.0],
                 tileMode: TileMode.clamp,
                 colors: [
@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> {
             elevation: 0,
             actions: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
                 child: CircleAvatar(
                   radius: 15,
                   child: Image.asset("assets/images/Bored logo.png"),
@@ -86,7 +86,7 @@ class _MyAppState extends State<MyApp> {
               unselectedItemColor: Colors.white,
               type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.black,
-              items: const <BottomNavigationBarItem>[
+              items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home,
