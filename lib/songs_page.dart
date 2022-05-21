@@ -6,11 +6,14 @@ import 'package:bored/actionlist.dart';
 import 'package:bored/app_drawer.dart';
 import 'package:bored/comedylist.dart';
 import 'package:bored/homepage.dart';
+import 'package:bored/indianlist.dart';
 import 'package:bored/movies_list.dart';
+import 'package:bored/poplist.dart';
 import 'package:bored/provider/action.dart';
 import 'package:bored/provider/comedy.dart';
 import 'package:bored/provider/movies_provider.dart';
 import 'package:bored/provider/thriller.dart';
+import 'package:bored/rocklist.dart';
 import 'package:bored/songs_list.dart';
 import 'package:bored/thrillerlist.dart';
 import 'package:flutter/material.dart';
@@ -147,7 +150,7 @@ class _SongsPageState extends State<SongsPage> {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  SizedBox(height: 170, child: ActionMoviesList()),
+                  SizedBox(height: 170, child: PopList()),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Text(
@@ -160,7 +163,7 @@ class _SongsPageState extends State<SongsPage> {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  SizedBox(height: 170, child: Thrillerlist()),
+                  SizedBox(height: 170, child: RockList()),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Text(
@@ -173,7 +176,7 @@ class _SongsPageState extends State<SongsPage> {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  SizedBox(height: 170, child: ComedyMoviesList()),
+                  SizedBox(height: 170, child: IndianList()),
                 ],
               ),
             ),

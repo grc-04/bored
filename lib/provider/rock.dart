@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'songs.dart';
 
-class Songs with ChangeNotifier {
-  List<Song> _songs = [
+class RockSongs with ChangeNotifier {
+  List<Song> _rocksongs = [
     Song(
         title: "Stay",
         artist: "Justin Bieber",
@@ -41,7 +41,7 @@ class Songs with ChangeNotifier {
         rating: 8.1,
         imageUrl: "https://img.cdandlp.com/2017/04/imgL/118690699.jpg"),
   ];
-  List<Song> get songs {
-    return [..._songs];
+  List<Song> get rocksongs {
+    return [..._rocksongs];
   }
 }
