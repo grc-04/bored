@@ -82,45 +82,47 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.white,
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.black,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  label: "Home",
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.black,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.white,
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.add,
-                    color: Colors.white,
-                  ),
-                  label: "Watchlist",
+                label: "Home",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.add,
+                  color: Colors.white,
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.shuffle,
-                    color: Colors.white,
-                  ),
-                  label: "Surprise Me!",
+                label: "Watchlist",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.shuffle,
+                  color: Colors.white,
                 ),
-                BottomNavigationBarItem(
-                  icon: IconButton(
-                    icon: Icon(Icons.settings),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SettingsList()),
-                      );
-                    },
-                  ),
-                  label: "Settings",
+                label: "Surprise Me!",
+              ),
+              BottomNavigationBarItem(
+                icon: IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingsList()),
+                    );
+                  },
                 ),
-              ]),
+                label: "Settings",
+              ),
+            ],
+            selectedLabelStyle: TextStyle(fontSize: 22),
+          ),
           drawer: Theme(
             data: Theme.of(context).copyWith(
               canvasColor: Colors.black,
