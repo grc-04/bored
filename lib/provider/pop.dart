@@ -3,14 +3,14 @@
 import 'package:flutter/material.dart';
 import 'songs.dart';
 
-class Songs with ChangeNotifier {
-  List<Song> _songs = [
+class PopSongs with ChangeNotifier {
+  List<Song> _popsongs = [
     Song(
         title: "Stay",
         artist: "Justin Bieber",
         rating: 8.4,
         imageUrl:
-            "https://i1.sndcdn.com/artworks-NTWumskIAtzxndKO-yz1ryA-t500x500.jpg"),
+            "https://static.wikia.nocookie.net/dualipa/images/2/2a/Egw5FPmXsAYyTrN-orig.jpg/revision/latest?cb=20200831173005"),
     Song(
         title: "Bad Romance",
         artist: "Lady Gaga",
@@ -42,7 +42,7 @@ class Songs with ChangeNotifier {
         imageUrl:
             "https://m.media-amazon.com/images/M/MV5BYTZkOGVhMDEtOGEzZS00NjRhLTg5NmUtZWUyN2UxYzZmNDJhXkEyXkFqcGdeQXVyNjk5NzY4OTk@._V1_.jpg"),
   ];
-  List<Song> get songs {
-    return [..._songs];
+  List<Song> get popsongs {
+    return [..._popsongs];
   }
 }

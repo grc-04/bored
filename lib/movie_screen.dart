@@ -20,7 +20,7 @@ class MovieScreen extends StatelessWidget {
     final _mlist = _movie.movies;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.black,
         flexibleSpace: Container(
@@ -45,7 +45,7 @@ class MovieScreen extends StatelessWidget {
         ),
         DraggableScrollableSheet(
           expand: true,
-          initialChildSize: 0.1,
+          initialChildSize: 0.2,
           minChildSize: 0.1,
           maxChildSize: 1.0,
           builder: (context, controller) => ClipRRect(

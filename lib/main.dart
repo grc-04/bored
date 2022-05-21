@@ -8,9 +8,14 @@ import 'package:bored/comedylist.dart';
 import 'package:bored/homepage.dart';
 import 'package:bored/movies_list.dart';
 import 'package:bored/music_screen.dart';
+import 'package:bored/poplist.dart';
 import 'package:bored/provider/action.dart';
 import 'package:bored/provider/comedy.dart';
+import 'package:bored/provider/indian.dart';
 import 'package:bored/provider/movies_provider.dart';
+import 'package:bored/provider/pop.dart';
+import 'package:bored/provider/rock.dart';
+import 'package:bored/provider/song_provider.dart';
 import 'package:bored/provider/thriller.dart';
 import 'package:bored/settings_ui.dart';
 import 'package:bored/thrillerlist.dart';
@@ -43,6 +48,10 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider.value(value: ActionM()),
         ChangeNotifierProvider.value(value: ThrillerM()),
         ChangeNotifierProvider.value(value: ComedyM()),
+        ChangeNotifierProvider.value(value: Songs()),
+        ChangeNotifierProvider.value(value: PopSongs()),
+        ChangeNotifierProvider.value(value: RockSongs()),
+        ChangeNotifierProvider.value(value: IndianSongs())
       ],
       child: MaterialApp(
           home: Container(
