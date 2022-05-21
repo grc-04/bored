@@ -10,7 +10,7 @@ class PopSongs with ChangeNotifier {
         artist: "Justin Bieber",
         rating: 8.4,
         imageUrl:
-            "https://i1.sndcdn.com/artworks-NTWumskIAtzxndKO-yz1ryA-t500x500.jpg"),
+            "https://static.wikia.nocookie.net/dualipa/images/2/2a/Egw5FPmXsAYyTrN-orig.jpg/revision/latest?cb=20200831173005"),
     Song(
         title: "Bad Romance",
         artist: "Lady Gaga",
