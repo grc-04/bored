@@ -11,6 +11,7 @@ import 'package:bored/music_screen.dart';
 import 'package:bored/provider/action.dart';
 import 'package:bored/provider/comedy.dart';
 import 'package:bored/provider/movies_provider.dart';
+import 'package:bored/provider/song_provider.dart';
 import 'package:bored/provider/thriller.dart';
 import 'package:bored/thrillerlist.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider.value(value: ActionM()),
         ChangeNotifierProvider.value(value: ThrillerM()),
         ChangeNotifierProvider.value(value: ComedyM()),
+        ChangeNotifierProvider.value(value: Songs())
       ],
       child: MaterialApp(
           home: Container(

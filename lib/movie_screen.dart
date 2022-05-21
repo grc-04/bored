@@ -20,7 +20,7 @@ class MovieScreen extends StatelessWidget {
     final _mlist = _movie.movies;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.black,
         flexibleSpace: Container(

@@ -2,6 +2,7 @@
 
 import 'package:bored/homepage.dart';
 import 'package:bored/main.dart';
+import 'package:bored/movies_list.dart';
 import 'package:bored/songs_page.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class AppDrawer extends StatelessWidget {
               leading: IconButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Homepage()));
+                      MaterialPageRoute(builder: (context) => MyApp()));
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new_outlined,
@@ -47,7 +48,10 @@ class AppDrawer extends StatelessWidget {
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => MyApp()));
+              },
             ),
             Divider(),
             ListTile(

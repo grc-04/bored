@@ -11,6 +11,7 @@ import 'package:bored/provider/action.dart';
 import 'package:bored/provider/comedy.dart';
 import 'package:bored/provider/movies_provider.dart';
 import 'package:bored/provider/thriller.dart';
+import 'package:bored/songs_list.dart';
 import 'package:bored/thrillerlist.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
@@ -133,7 +134,7 @@ class _SongsPageState extends State<SongsPage> {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  SizedBox(height: 170, child: MoviesList()),
+                  SizedBox(height: 170, child: SongsList()),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Text(
