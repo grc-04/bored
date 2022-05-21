@@ -30,6 +30,7 @@ https://www.figma.com/file/M2NjuodMjqZLjMJZxdnmTU/Bored-App-UI?node-id=0%3A1
 
 
 ## Working Video 
+https://vimeo.com/712403420
 
 ## The Team 
 Developed by [@anshb7](https://github.com/anshb7) , [@grc-04](https://github.com/grc-04), [@pranav2811](https://github.com/pranav2811), [@vivaantaneja](https://https://github.com/vivaantaneja)
