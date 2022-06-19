@@ -3,7 +3,7 @@ import pandas as pd
 import ast
 import nltk
 from flask import Flask,jsonify, request
-from flask_cors import CORS
+from flask import CORS
 from nltk.stem.porter import PorterStemmer
 from sklearn.preprocessing import MinMaxScaler 
 from sklearn.feature_extraction.text import CountVectorizer
